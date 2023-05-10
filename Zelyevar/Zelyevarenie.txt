@@ -1,0 +1,22 @@
+with open('C:\\Users\\Максим\\Desktop\\Zelyevar\\input.txt', 'r') as input:
+    action = [line.split() for line in input.read().split('\n')]
+
+for i in range(len(action)):
+    if action[i][0] == 'MIX':
+        action[i][0] = 'MX'
+        action[i].append('XM')
+    elif action[i][0] == 'WATER':
+        action[i][0] = 'WT'
+        action[i].append('TW')
+    elif action[i][0] == 'DUST':
+        action[i][0] = 'DT'
+        action[i].append('TD')
+    elif action[i][0] == 'FIRE':
+        action[i][0] = 'FR'
+        action[i].append('RF')
+    for j in range(len(action[i])):
+        if action[i][j].isdigit():
+            action[i][j] = ''.join(action[int(action[i][j]) - 1])
+
+with open('C:\\Users\\Максим\\Desktop\\Zelyevar\\output.txt', 'w') as output:
+    output.write(''.join(action[i]))
