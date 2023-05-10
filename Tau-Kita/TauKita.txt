@@ -1,0 +1,25 @@
+with open('C:\\Users\\Максим\\Desktop\\Tau-Kita\\input.txt', 'r') as input:
+    tk = input.readline().split()
+res = [''] * len(tk)
+
+start1 = int(len(tk)/2)
+
+for i in range(len(tk)):
+    if i % 2 == 0:
+        dif1 = i
+    else:
+        dif1 = -i
+    start1 += dif1
+
+    start2 = int(len(tk[start1])/2)
+    for j in range(len(tk[start1])):
+        if j % 2 == 0:
+            dif2 = j
+        else:
+            dif2 = -j
+        start2 += dif2
+
+        res[i] += tk[start1][start2]
+
+with open('C:\\Users\\Максим\\Desktop\\Tau-Kita\\output.txt', 'w') as output:
+    output.write(' '.join(res))
