@@ -1,0 +1,23 @@
+def counter(pos):
+    i = int(input.readline())
+    edge = dict()
+    for _ in range(i):
+        b, k = input.readline().split()
+        edge[b] = [b for _ in range(int(k))]
+    coll = []
+    for w in range(len(words)):
+        for e in edge.keys():
+            if words[w][pos] == e and edge[e]:
+                coll.append(edge[e].pop())
+                break
+    return len(coll)
+
+
+with open('C:\\Users\\Максим\\Desktop\\GFish\\input.txt', 'r') as input:
+    n = int(input.readline())
+    words = [input.readline().strip() for _ in range(n)]
+    f = counter(0)
+    l = counter(-1)
+    
+with open('C:\\Users\\Максим\\Desktop\\GFish\\output.txt', 'w') as output:
+    output.write(str(min(f, l)))
